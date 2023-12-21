@@ -26,7 +26,7 @@ public:
 	}
 
 	std::map<std::wstring, std::wstring> words;
-	const std::string xmlFileName = ".\\arc_note.xml";
+	const std::string xmlFileName = "./arc_note.xml";
 
 	std::wstring search(std::wstring key) 
 	{
@@ -38,21 +38,15 @@ public:
 	}
 
 	const int ERROR = -1;
-	const int APPEND = 0;
-	const int REPLACED = 1;
-	int add(Word word) 
+	const int SUCCED = 0;
+	int update(Word word) 
 	{
 		if(!isValidWord(word)) {
 			return ERROR;
 		}
 
-		int ret = APPEND;
-		if(isWordExist(word.key)) {
-			ret = REPLACED;
-		}
-
 		words[word.key] = word.meaning;
-		return ret;
+		return SUCCED;
 	}
 
 	int erase(std::wstring key) 
@@ -66,6 +60,15 @@ public:
 		return words.size(); 
 	}
 
+	bool isWordExist(std::wstring key) 
+	{
+		if(words.count(key) == 1) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 private:
 	bool isValidWord(Word word)
 	{
@@ -73,15 +76,6 @@ private:
 			return false;
 		} else {
 			return true;
-		}
-	}
-
-	bool isWordExist(std::wstring key) 
-	{
-		if(words.count(key) == 1) {
-			return true;
-		} else {
-			return false;
 		}
 	}
 

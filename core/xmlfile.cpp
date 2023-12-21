@@ -17,7 +17,9 @@ Notebook::Notebook()
 
     try {
         for(auto iter = pt.begin(); iter != pt.end(); iter++) {
-            if(iter->first == "word") {
+            std::string keyValue = iter->first;
+            
+            if(keyValue == "word") {
                 addWordFromXMLNode(iter->second);
             }
         }
@@ -36,7 +38,7 @@ void Notebook::addWordFromXMLNode(boost::property_tree::ptree &childNode)
 
     std::wstring wk = std::wstring(key.begin(), key.end());
     std::wstring wm = std::wstring(meaning.begin(), meaning.end());
-    this->add(Word(wk, wm));
+    this->update(Word(wk, wm));
 
     return;
 }

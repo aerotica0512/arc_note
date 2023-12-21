@@ -15,13 +15,13 @@ int main(void)
     Notebook dict = Notebook();
     printVersion();
 
-    dict.add(Word(L"abcd", L"123456"));
-    dict.add(Word(L"cdef", L"345678"));
-    dict.add(Word(L"bcde", L"234567"));
+    dict.update(Word(L"abcd", L"123456"));
+    dict.update(Word(L"cdef", L"345678"));
+    dict.update(Word(L"bcde", L"234567"));
     printDict(dict);
 
-    dict.add(Word(L"abcd", L"012345"));
-    dict.add(Word(L"defg", L"This is line 1, \nThis is line2, \nThis is line3"));
+    dict.update(Word(L"abcd", L"012345"));
+    dict.update(Word(L"defg", L"This is line 1, \nThis is line2, \nThis is line3"));
     printDict(dict);
 
     printSearch(dict, L"abcd");
