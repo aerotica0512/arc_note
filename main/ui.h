@@ -5,8 +5,8 @@
 #include <windows.h>
 #include <string>
 
-struct Aera {
-    Aera(int x, int y, int w, int h) : x(x), y(y), w(w), h(h) {};
+struct Area {
+    Area(int x, int y, int w, int h) : x(x), y(y), w(w), h(h) {};
     int x, y, w, h;
 };
 
@@ -17,4 +17,6 @@ struct ControlInfo {
 };
 
 HFONT generateFont(std::wstring fontName, int size);
-HWND createControlInWindow(ControlInfo info, Aera aera, HWND hParent, HFONT hFont);
+HWND createControlInWindow(ControlInfo info, Area area, HWND hParent, HFONT hFont);
+void setControlPosition(HWND hParent, DWORD id, Area area);
+void setButtomText(HWND hParent, int count);

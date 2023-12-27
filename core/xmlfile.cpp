@@ -3,6 +3,7 @@
 #include "notebook.h"
 #include <exception>
 
+// Notebook类的构造函数, 从xml文件中读取单词信息.
 Notebook::Notebook()
 {
     using boost::property_tree::ptree;
@@ -15,6 +16,8 @@ Notebook::Notebook()
         return;
     }
 
+    // iter->first = xml文件内子项名称
+    // iter->second = 子项树句柄
     try {
         for(auto iter = pt.begin(); iter != pt.end(); iter++) {
             std::string keyValue = iter->first;
@@ -50,6 +53,8 @@ void Notebook::updateWordsToXMLFile(void)
 
     ptree pt;
 
+    // iter->first = 单词
+    // iter->second = 单词字义
     for(auto iter = begin(words); iter != end(words); iter++) {
         ptree child = addElementsFromWord(iter->first, iter->second);
         pt.add_child("word", child);

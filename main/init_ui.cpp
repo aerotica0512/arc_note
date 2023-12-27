@@ -95,14 +95,29 @@ void putControls(HWND hWnd)
 	HFONT hFontMSYH = generateFont(L"Microsoft Yahei UI", 20);
 	HFONT hFontMSYH2 = generateFont(L"Microsoft Yahei UI", 40);
 
-	createControlInWindow(ControlInfo(L"edit", L"", IDC_SEARCH_BOX, ES_LEFT|WS_BORDER), Aera(15, 15, 210, 25), hWnd, hFontMSYH);
-	createControlInWindow(ControlInfo(L"LISTBOX", L"", IDC_WORDS_LIST, LBS_STANDARD), Aera(15, 50, 210, MAINWIN_YSIZE-90), hWnd, hFontMSYH);
-	createControlInWindow(ControlInfo(L"button", L"添加", IDC_ADD_BUTTON, 0), Aera(15, MAINWIN_YSIZE-40, 65, 25), hWnd, hFontMSYH);
-	createControlInWindow(ControlInfo(L"button", L"编辑", IDC_EDIT_BUTTON, 0), Aera(87, MAINWIN_YSIZE-40, 65, 25), hWnd, hFontMSYH);
-	createControlInWindow(ControlInfo(L"button", L"删除", IDC_DELETE_BUTTON, 0), Aera(159, MAINWIN_YSIZE-40, 65, 25), hWnd, hFontMSYH);
-	createControlInWindow(ControlInfo(L"static", L"", IDC_TEXT, 0), Aera(250, 15, MAINWIN_XSIZE-265, 40), hWnd, hFontMSYH2);
+	createControlInWindow(ControlInfo(L"edit", L"", IDC_SEARCH_BOX, ES_LEFT|WS_BORDER), Area(15, 15, 210, 25), hWnd, hFontMSYH);
+	createControlInWindow(ControlInfo(L"LISTBOX", L"", IDC_WORDS_LIST, LBS_STANDARD), Area(15, 50, 210, MAINWIN_YSIZE-90), hWnd, hFontMSYH);
+	createControlInWindow(ControlInfo(L"button", L"添加", IDC_ADD_BUTTON, 0), Area(15, MAINWIN_YSIZE-40, 65, 25), hWnd, hFontMSYH);
+	createControlInWindow(ControlInfo(L"button", L"编辑", IDC_EDIT_BUTTON, 0), Area(87, MAINWIN_YSIZE-40, 65, 25), hWnd, hFontMSYH);
+	createControlInWindow(ControlInfo(L"button", L"删除", IDC_DELETE_BUTTON, 0), Area(159, MAINWIN_YSIZE-40, 65, 25), hWnd, hFontMSYH);
+	createControlInWindow(ControlInfo(L"static", L"", IDC_TEXT, 0), Area(250, 15, MAINWIN_XSIZE-265, 40), hWnd, hFontMSYH2);
 	createControlInWindow(ControlInfo(L"edit", L"", IDC_MEANING_BOX, ES_MULTILINE|ES_READONLY|ES_AUTOVSCROLL|WS_BORDER), 
-						  Aera(250, 65, MAINWIN_XSIZE-265, MAINWIN_YSIZE-80), hWnd, hFontMSYH);
+						  Area(250, 65, MAINWIN_XSIZE-265, MAINWIN_YSIZE-120), hWnd, hFontMSYH);
+	createControlInWindow(ControlInfo(L"static", L"", IDC_TEXT_BUTTOM, 0), Area(250, MAINWIN_YSIZE-37, MAINWIN_XSIZE-265, 20), hWnd, hFontMSYH);
+
+	return;
+}
+
+void fixControlsPosition(HWND hWnd, int x, int y)
+{
+	setControlPosition(hWnd, IDC_SEARCH_BOX, Area(15, 15, 210, 25));
+	setControlPosition(hWnd, IDC_WORDS_LIST, Area(15, 50, 210, y-90));
+	setControlPosition(hWnd, IDC_ADD_BUTTON, Area(15, y-40, 65, 25));
+	setControlPosition(hWnd, IDC_EDIT_BUTTON, Area(87, y-40, 65, 25));
+	setControlPosition(hWnd, IDC_DELETE_BUTTON, Area(159, y-40, 65, 25));
+	setControlPosition(hWnd, IDC_TEXT, Area(250, 15, x-265, 40));
+	setControlPosition(hWnd, IDC_MEANING_BOX, Area(250, 65, x-265, y-120));
+	setControlPosition(hWnd, IDC_TEXT_BUTTOM, Area(250, y-37, x-265, 20));
 
 	return;
 }

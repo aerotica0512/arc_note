@@ -9,3 +9,4 @@
 #define IDC_DELETE_BUTTON   1404
 #define IDC_TEXT            1405
 #define IDC_MEANING_BOX     1406
+#define IDC_TEXT_BUTTOM     1407
