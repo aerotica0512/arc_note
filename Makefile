@@ -1,6 +1,6 @@
-FILES = ./main/winmain.cpp ./core/xmlfile.cpp ./main/init_ui.cpp ./main/wndproc.cpp
+FILES = ./main/winmain.cpp ./core/xmlfile.cpp ./main/init_ui.cpp ./main/wndproc.cpp ./main/ui.cpp
 FILES_TEST = ./test/test.cpp ./core/xmlfile.cpp
-HEADER_FILE = ./version.h ./core/Notebook.h ./main/init_ui.h ./main/wndproc.h
+HEADER_FILE = ./version.h ./core/Notebook.h ./main/init_ui.h ./main/wndproc.h ./main/ui.h
 
 default:
 	make arc_note.exe

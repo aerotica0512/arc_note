@@ -8,6 +8,7 @@ LRESULT ProcWinMain(HWND hWnd, UINT uMessage, WPARAM wParam, LPARAM lParam)
     switch(uMessage) {
         case WM_CREATE:
             fixWindowSize(hWnd);
+            putControls(hWnd);
             break;
 
         case WM_CLOSE:
